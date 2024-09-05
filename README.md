@@ -47,9 +47,17 @@ cd ud-go-microservices
 
 ## :runner: Running
 
+Start all containers:
 ```sh
-make run
+make up_build
 ```
+> Stop with `make down`
+
+Start front end app:
+```sh
+make start # start front-end
+```
+> Stop with `make stop`
 
 > Access http://localhost
 
