@@ -21,6 +21,7 @@ Notes taken during the course are in the [notes](notes.md) file.
 - [Go](https://golang.org/)
 - [go-chi](https://github.com/go-chi/chi)
 - [PostgreSQL](https://www.postgresql.org/)
+- [pgx](https://github.com/jackc/pgx)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
