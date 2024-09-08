@@ -1,3 +1,5 @@
 .shub
 
 project/db-data/*
+
+.DS_Store
