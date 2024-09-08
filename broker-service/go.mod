@@ -1,6 +1,6 @@
 module github.com/filipe1309/ud-go-microservices/broker-service
 
-go 1.22
+go 1.21
 
 require (
 	github.com/go-chi/chi/v5 v5.1.0
