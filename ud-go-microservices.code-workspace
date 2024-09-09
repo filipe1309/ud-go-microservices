@@ -1,19 +1,28 @@
 {
 	"folders": [
 		{
+			"name": "ud-go-microservices",
 			"path": "."
 		},
 		{
+			"name": "project",
+			"path": "project"
+		},
+		{
+			"name": "front-end",
 			"path": "front-end"
 		},
 		{
+			"name": "broker-service",
 			"path": "broker-service"
 		},
 		{
+			"name": "authentication-service",
 			"path": "authentication-service"
 		},
 		{
-			"path": "project"
+			"name": "logger-service",
+			"path": "logger-service"
 		}
 	],
 	"settings": {}

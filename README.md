@@ -6,6 +6,7 @@
 <p align="center">
     <img src="https://img.shields.io/badge/Code-Go-informational?style=flat-square&logo=go&color=00ADD8" alt="Go" />
     <img src="https://img.shields.io/badge/Tools-PostgreSQL-informational?style=flat-square&logo=postgresql&color=4169E1&logoColor=4169E1" alt="PostgreSQL" />
+    <img src="https://img.shields.io/badge/Tools-MongoDB-informational?style=flat-square&logo=mongodb&color=47A248" alt="MongoDB" />
     <img src="https://img.shields.io/badge/Tools-Docker-informational?style=flat-square&logo=docker&color=2496ED" alt="Docker" />
     <img src="https://img.shields.io/badge/Tools-Kubernetes-informational?style=flat-square&logo=kubernetes&color=326CE5" alt="Kubernetes" />
 </p>
@@ -21,6 +22,7 @@ Notes taken during the course are in the [notes](notes.md) file.
 - [Go](https://golang.org/)
 - [go-chi](https://github.com/go-chi/chi)
 - [PostgreSQL](https://www.postgresql.org/)
+- [MongoDB](https://www.mongodb.com/)
 - [pgx](https://github.com/jackc/pgx)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
@@ -96,8 +98,14 @@ Please make sure to update tests as appropriate. -->
 
 ## :clap: Acknowledgments
 
-- [AlgoExpert](https://www.algoexpert.io/)
 - [ShubcoGen Template™](https://github.com/filipe1309/shubcogen-template)
+- [Go](https://golang.org/)
+- [go-chi](https://github.com/go-chi/chi)
+- [PostgreSQL](https://www.postgresql.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [pgx](https://github.com/jackc/pgx)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

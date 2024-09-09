@@ -20,3 +20,12 @@ go get github.com/jackc/pgconn
 go get github.com/jackc/pgx/v4
 go get github.com/jackc/pgx/v4/stdlib
 ```
+
+## Section 4: Building a Logger Service
+
+### 28. Getting started with the Logger service
+
+```sh
+go get go.mongodb.org/mongo-driver/mongo
+go get go.mongodb.org/mongo-driver/mongo/options
+```
