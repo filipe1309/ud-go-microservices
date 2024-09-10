@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"log"
+	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -11,7 +12,7 @@ import (
 const (
 	webPort  = "80"
 	rpcPort  = "5001"
-	mongoURL  = "mongodb://mongo:27017"
+	mongoURL = "mongodb://mongo:27017"
 	gRpcPort = "50051"
 )
 
@@ -28,6 +29,16 @@ func main() {
 	}
 
 	client = mongoCLient
+
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+
+	// close connection
+	defer func() {
+		if err = client.Disconnect(ctx); err != nil {
+			log.Panic("Error disconnecting from mongodb:", err)
+		}
+	}()
 }
 
 func connectToMongo() (*mongo.Client, error) {
