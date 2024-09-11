@@ -29,3 +29,11 @@ go get github.com/jackc/pgx/v4/stdlib
 go get go.mongodb.org/mongo-driver/mongo
 go get go.mongodb.org/mongo-driver/mongo/options
 ```
+
+### 31. Setting up routes, handlers, helpers, and a web server in our logger-service
+
+```sh
+go get github.com/go-chi/chi/v5
+go get github.com/go-chi/chi/v5/middleware
+go get github.com/go-chi/cors
+```
