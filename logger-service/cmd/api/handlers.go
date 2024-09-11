@@ -1,17 +1,14 @@
 package main
 
 import (
-	"bytes"
-	"encoding/json"
-	"errors"
 	"net/http"
 
 	"github.com/filipe1309/ud-go-microservices/logger-service/data"
 )
 
 type JSONPayload struct {
-	Name string      `json:"name"`
-	Data   string `json:"data"`
+	Name string `json:"name"`
+	Data string `json:"data"`
 }
 
 func (app *Config) WriteLog(w http.ResponseWriter, r *http.Request) {
@@ -30,10 +27,9 @@ func (app *Config) WriteLog(w http.ResponseWriter, r *http.Request) {
 	}
 
 	res := jsonResponse{
-		Error:  false,
+		Error:   false,
 		Message: "logged",
 	}
 
 	app.writeJson(w, http.StatusAccepted, res)
 }
-
