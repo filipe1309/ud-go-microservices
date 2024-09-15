@@ -49,6 +49,9 @@ go get github.com/mailhog/MailHog
 ````
 
 
+https://hub.docker.com/r/jcalonso/mailhog
+
+
 Premailer: Inline styling for HTML mail in golang
 
 ```sh
@@ -60,3 +63,4 @@ Go Simple Mail: Send mail in golang
 ```sh
 go get github.com/xhit/go-simple-mail/v2
 ```
+
