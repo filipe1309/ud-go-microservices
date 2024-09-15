@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"html/template"
+	"log"
 	"time"
 
 	"github.com/vanng822/go-premailer/premailer"
@@ -47,11 +48,13 @@ func (m *Mail) SendSMTPMessage(msg Message) error {
 
 	formattedMessage, err := m.buildHTMLMessage(msg)
 	if err != nil {
+		log.Println(err)
 		return err
 	}
 
 	plainMessage, err := m.buildPlainTextMessage(msg)
 	if err != nil {
+		log.Println(err)
 		return err
 	}
 
@@ -65,7 +68,7 @@ func (m *Mail) SendSMTPMessage(msg Message) error {
 	server.ConnectTimeout = 10 * time.Second
 	server.SendTimeout = 10 * time.Second
 
-	smtopClient, err := server.Connect()
+	smtpClient, err := server.Connect()
 	if err != nil {
 		return err
 	}
@@ -77,18 +80,18 @@ func (m *Mail) SendSMTPMessage(msg Message) error {
 		SetBody(mail.TextPlain, plainMessage).
 		AddAlternative(mail.TextHTML, formattedMessage)
 
-		if len(msg.Attachments) > 0 {
-			for _, attachment := range msg.Attachments {
-				email.AddAttachment(attachment)
-			}
+	if len(msg.Attachments) > 0 {
+		for _, attachment := range msg.Attachments {
+			email.AddAttachment(attachment)
 		}
+	}
 
-		err = email.Send(smtopClient)
-		if err != nil {
-			return err
-		}
+	err = email.Send(smtpClient)
+	if err != nil {
+		return err
+	}
 
-		return nil
+	return nil
 }
 
 func (m *Mail) buildHTMLMessage(msg Message) (string, error) {
@@ -96,17 +99,20 @@ func (m *Mail) buildHTMLMessage(msg Message) (string, error) {
 
 	t, err := template.New("email-html").ParseFiles(templateToRender)
 	if err != nil {
+		log.Println(err)
 		return "", err
 	}
 
 	var tpl bytes.Buffer
-	if err = t.ExecuteTemplate(&tpl, "body", msg.Data); err != nil {
+	if err = t.ExecuteTemplate(&tpl, "body", msg.DataMap); err != nil {
+		log.Println(err)
 		return "", err
 	}
 
 	formattedMessage := tpl.String()
 	formattedMessage, err = m.inlineCSS(formattedMessage)
 	if err != nil {
+		log.Println(err)
 		return "", err
 	}
 
@@ -118,11 +124,13 @@ func (m *Mail) buildPlainTextMessage(msg Message) (string, error) {
 
 	t, err := template.New("email-plain").ParseFiles(templateToRender)
 	if err != nil {
+		log.Println(err)
 		return "", err
 	}
 
 	var tpl bytes.Buffer
-	if err = t.ExecuteTemplate(&tpl, "body", msg.Data); err != nil {
+	if err = t.ExecuteTemplate(&tpl, "body", msg.DataMap); err != nil {
+		log.Println(err)
 		return "", err
 	}
 
@@ -140,11 +148,13 @@ func (m *Mail) inlineCSS(s string) (string, error) {
 
 	prem, err := premailer.NewPremailerFromString(s, &options)
 	if err != nil {
+		log.Println(err)
 		return "", err
 	}
 
 	html, err := prem.Transform()
 	if err != nil {
+		log.Println(err)
 		return "", err
 	}
 
