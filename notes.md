@@ -41,3 +41,22 @@ go get github.com/go-chi/cors
 ````
 mongodb://admin:password@localhost:27017/logs?authSource=admin&readPreference=primary&appname=MongoDB%20TP&directConnection=true&ssl=false
 ```
+
+## Section 5: Building a Mail Service
+
+```sh
+go get github.com/mailhog/MailHog
+````
+
+
+Premailer: Inline styling for HTML mail in golang
+
+```sh
+go get github.com/vanng822/go-premailer/premailer
+```
+
+Go Simple Mail: Send mail in golang
+
+```sh
+go get github.com/xhit/go-simple-mail/v2
+```
