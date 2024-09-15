@@ -6,7 +6,7 @@ LOGGER_BINARY=loggerApp
 ## up: starts all containers in the background without forcing build
 up:
 	@echo "Starting Docker images..."
-	docker-compose up -d
+	docker-compose up -d --platform linux/amd64
 	@echo "Docker images started!"
 
 ## up_build: stops docker-compose (if running), builds all projects and starts docker compose

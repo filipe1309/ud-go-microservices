@@ -24,6 +24,7 @@ Notes taken during the course are in the [notes](notes.md) file.
 - [PostgreSQL](https://www.postgresql.org/)
 - [MongoDB](https://www.mongodb.com/)
 - [pgx](https://github.com/jackc/pgx)
+- [Mailhog](https://github.com/mailhog/MailHog)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
@@ -62,7 +63,9 @@ make start # start front-end
 ```
 > Stop with `make stop`
 
-> Access http://localhost
+> Access http://localhost to see the app
+>
+> Access http://localhost:8025 to see emails sent (Mailhog)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,6 +109,7 @@ Please make sure to update tests as appropriate. -->
 - [pgx](https://github.com/jackc/pgx)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Mailhog](https://github.com/mailhog/MailHog)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
