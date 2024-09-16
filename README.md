@@ -7,6 +7,7 @@
     <img src="https://img.shields.io/badge/Code-Go-informational?style=flat-square&logo=go&color=00ADD8" alt="Go" />
     <img src="https://img.shields.io/badge/Tools-PostgreSQL-informational?style=flat-square&logo=postgresql&color=4169E1&logoColor=4169E1" alt="PostgreSQL" />
     <img src="https://img.shields.io/badge/Tools-MongoDB-informational?style=flat-square&logo=mongodb&color=47A248" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/Tools-RabbitMQ-informational?style=flat-square&logo=rabbitmq&color=FF6600" alt="RabbitMQ" />
     <img src="https://img.shields.io/badge/Tools-Docker-informational?style=flat-square&logo=docker&color=2496ED" alt="Docker" />
     <img src="https://img.shields.io/badge/Tools-Kubernetes-informational?style=flat-square&logo=kubernetes&color=326CE5" alt="Kubernetes" />
 </p>
@@ -27,6 +28,7 @@ Notes taken during the course are in the [notes](notes.md) file.
 - [Mailhog](https://github.com/mailhog/MailHog)
 - [go-premailer](https://github.com/vanng822/go-premailer)
 - [Go Simple Mail](https://github.com/xhit/go-simple-mail)
+- [RabbitMQ](https://www.rabbitmq.com/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
@@ -114,6 +116,7 @@ Please make sure to update tests as appropriate. -->
 - [Mailhog](https://github.com/mailhog/MailHog)
 - [go-premailer](https://github.com/vanng822/go-premailer)
 - [Go Simple Mail](https://github.com/xhit/go-simple-mail)
+- [RabbitMQ](https://www.rabbitmq.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

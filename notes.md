@@ -64,3 +64,10 @@ Go Simple Mail: Send mail in golang
 go get github.com/xhit/go-simple-mail/v2
 ```
 
+## Section 6: Building a Listener service: AMQP with RabbitMQ
+
+### 49. Creating a stub Listener service
+
+```sh
+go get github.com/rabbitmq/amqp091-go
+```
