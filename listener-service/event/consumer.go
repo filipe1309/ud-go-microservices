@@ -85,12 +85,12 @@ func (consumer *Consumer) Listen(topics []string) error {
 		for d := range messages {
 			var paylod Payload
 			_ = json.Unmarshal(d.Body, &paylod)
-			println("Received message: ", paylod)
+			log.Println("Received message: ", paylod)
 			go handlePayload(paylod)
 		}
 	}()
 
-	fmt.Printf(" [*] Waiting for message [Exchange: %s][Queue: %s]\n", "logs_topic", queue.Name)
+	fmt.Printf(" [*] Waiting for message [Exchange, Queue] [%s, %s]\n", "logs_topic", queue.Name)
 	<-forever
 
 	return nil
