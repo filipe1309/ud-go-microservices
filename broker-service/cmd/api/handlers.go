@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"net/http"
+
+	"github.com/filipe1309/ud-go-microservices/broker-service/event"
 )
 
 type RequestPayload struct {
@@ -53,7 +55,8 @@ func (app *Config) HandleSubmission(w http.ResponseWriter, r *http.Request) {
 	case "auth":
 		app.authenticate(w, requestPayload.Auth)
 	case "log":
-		app.logItem(w, requestPayload.Log)
+		// app.logItem(w, requestPayload.Log)
+		app.logEventViaRabbitMQ(w, requestPayload.Log)
 	case "mail":
 		app.sendMail(w, requestPayload.Mail)
 	default:
@@ -181,4 +184,33 @@ func (app *Config) sendMail(w http.ResponseWriter, msg MailPayload) {
 	payload.Message = "Email sent to " + msg.To
 
 	app.writeJson(w, http.StatusAccepted, payload)
+}
+
+func (app *Config) logEventViaRabbitMQ(w http.ResponseWriter, logPayload LogPayload) {
+	err := app.pushToQueue(logPayload.Name, logPayload.Data)
+	if err != nil {
+		app.errorJson(w, err)
+		return
+	}
+
+	var payload jsonResponse
+	payload.Error = false
+	payload.Message = "logged via RabbitMQ"
+
+	app.writeJson(w, http.StatusAccepted, payload)
+}
+
+func (app *Config) pushToQueue(name, msg string) error {
+	emitter, err := event.NewEventEmitter(app.RabbitConn)
+	if err != nil {
+		return err
+	}
+
+	payload := LogPayload{
+		Name: name,
+		Data: msg,
+	}
+
+	j, _ := json.MarshalIndent(&payload, "", "\t")
+	return emitter.Push(string(j), "log.INFO")
 }
