@@ -117,6 +117,8 @@ Please make sure to update tests as appropriate. -->
 - [go-premailer](https://github.com/vanng822/go-premailer)
 - [Go Simple Mail](https://github.com/xhit/go-simple-mail)
 - [RabbitMQ](https://www.rabbitmq.com/)
+- [What Are RPCs in Golang?](https://betterprogramming.pub/rpc-in-golang-19661033942)
+- [RPC with Go, what is it?](https://dev.to/iamelesq/rpc-with-go-what-is-it-p41)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
