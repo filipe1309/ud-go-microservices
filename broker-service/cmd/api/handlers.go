@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"net/http"
+	"net/rpc"
 
 	"github.com/filipe1309/ud-go-microservices/broker-service/event"
 )
@@ -56,7 +57,8 @@ func (app *Config) HandleSubmission(w http.ResponseWriter, r *http.Request) {
 		app.authenticate(w, requestPayload.Auth)
 	case "log":
 		// app.logItem(w, requestPayload.Log)
-		app.logEventViaRabbitMQ(w, requestPayload.Log)
+		// app.logEventViaRabbitMQ(w, requestPayload.Log)
+		app.logItemViaRPC(w, requestPayload.Log)
 	case "mail":
 		app.sendMail(w, requestPayload.Mail)
 	default:
@@ -213,4 +215,36 @@ func (app *Config) pushToQueue(name, msg string) error {
 
 	j, _ := json.MarshalIndent(&payload, "", "\t")
 	return emitter.Push(string(j), "log.INFO")
+}
+
+type RPCPayload struct {
+	Name string
+	Data string
+}
+
+func (app *Config) logItemViaRPC(w http.ResponseWriter, logPayload LogPayload) {
+	client, err := rpc.Dial("tcp", "logger-service:5001")
+	if err != nil {
+		app.errorJson(w, err)
+		return
+	}
+
+	rpcPayload := RPCPayload {
+		Name: logPayload.Name,
+		Data: logPayload.Data,
+	}
+
+	var result string
+	err = client.Call("RPCServer.LogInfo", rpcPayload, &result)
+	if err != nil {
+		app.errorJson(w, err)
+		return
+	}
+
+	payload := jsonResponse {
+		Error:   false,
+		Message: result,
+	}
+
+	app.writeJson(w, http.StatusAccepted, payload)
 }

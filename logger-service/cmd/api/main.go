@@ -88,8 +88,9 @@ func (app *Config) serve() {
 
 func (app *Config) rpcListen() error {
 	log.Println("Starting rpc service on port", rpcPort)
-	listen, err := net.Listen("0.0.0.0:%s", rpcPort)
+	listen, err := net.Listen("tcp", fmt.Sprintf("0.0.0.0:%s", rpcPort))
 	if err != nil {
+		log.Println("Error starting rpc service:", err)
 		return err
 	}
 	defer listen.Close()
@@ -97,6 +98,7 @@ func (app *Config) rpcListen() error {
 	for {
 		rpcConn, err := listen.Accept()
 		if err != nil {
+			log.Println("Error accepting rpc connection:", err)
 			continue
 		}
 		go rpc.ServeConn(rpcConn)
