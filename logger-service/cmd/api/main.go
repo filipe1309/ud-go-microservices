@@ -4,7 +4,9 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"net"
 	"net/http"
+	"net/rpc"
 	"time"
 
 	"github.com/filipe1309/ud-go-microservices/logger-service/data"
@@ -48,6 +50,15 @@ func main() {
 		Models: data.New(client),
 	}
 
+	// start rpc server
+	// Register RPC server
+	rpcServer := new(RPCServer)
+	err = rpc.Register(rpcServer)
+	if err != nil {
+		log.Panic("Error registering rpc server:", err)
+	}
+	go app.rpcListen()
+
 	// start web server
 	// go app.serve()
 
@@ -72,6 +83,23 @@ func (app *Config) serve() {
 	err := srv.ListenAndServe()
 	if err != nil {
 		log.Panic("Error on server ListenAndServe:", err)
+	}
+}
+
+func (app *Config) rpcListen() error {
+	log.Println("Starting rpc service on port", rpcPort)
+	listen, err := net.Listen("0.0.0.0:%s", rpcPort)
+	if err != nil {
+		return err
+	}
+	defer listen.Close()
+
+	for {
+		rpcConn, err := listen.Accept()
+		if err != nil {
+			continue
+		}
+		go rpc.ServeConn(rpcConn)
 	}
 }
 
