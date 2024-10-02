@@ -71,3 +71,12 @@ go get github.com/xhit/go-simple-mail/v2
 ```sh
 go get github.com/rabbitmq/amqp091-go
 ```
+
+## Section 8: Speeding things up (potentially) with gRPC
+
+### 67. Installing the necessary tools for gRPC
+
+```sh
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.27
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+```
