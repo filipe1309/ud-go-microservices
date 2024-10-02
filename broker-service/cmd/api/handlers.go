@@ -263,7 +263,8 @@ func (app *Config) LogViaGRPC(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	conn, err := grpc.NewClient("logger-service:50001", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	// conn, err := grpc.Dial("logger-service:50051", grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithBlock())
+	conn, err := grpc.NewClient("logger-service:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		app.errorJson(w, err)
 		return
