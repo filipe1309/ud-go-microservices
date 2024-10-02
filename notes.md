@@ -93,3 +93,10 @@ Inside `logger-service/logs`, run:
 ```sh
 protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative logs.proto
 ```
+
+### 70. Getting started with the gRPC server
+
+```sh
+go get google.golang.org/grpc
+go get google.golang.org/protobuf
+```
