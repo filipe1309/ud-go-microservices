@@ -119,6 +119,8 @@ Please make sure to update tests as appropriate. -->
 - [RabbitMQ](https://www.rabbitmq.com/)
 - [What Are RPCs in Golang?](https://betterprogramming.pub/rpc-in-golang-19661033942)
 - [RPC with Go, what is it?](https://dev.to/iamelesq/rpc-with-go-what-is-it-p41)
+- [gRPC](https://grpc.io/)
+- [gRPC protoc](https://grpc.io/docs/protoc-installation/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
