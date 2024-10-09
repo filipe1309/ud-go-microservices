@@ -188,3 +188,10 @@ docker service ls
 docker service scale go-micro-app_logger-service=2
 docker service update --image devontherun/logger-service:1.0.1 go-micro-app_logger-service
 ```
+
+### 82. Stopping Docker swarm
+
+```sh
+docker stack rm go-micro-app
+docker swarm leave --force
+```
