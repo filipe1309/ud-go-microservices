@@ -31,6 +31,7 @@ Notes taken during the course are in the [notes](notes.md) file.
 - [RabbitMQ](https://www.rabbitmq.com/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Docker Swarm](https://docs.docker.com/engine/swarm/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -38,6 +39,7 @@ Notes taken during the course are in the [notes](notes.md) file.
 
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Docker Swarm](https://docs.docker.com/engine/swarm/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -70,6 +72,17 @@ make start # start front-end
 > Access http://localhost to see the app
 >
 > Access http://localhost:8025 to see emails sent (Mailhog)
+
+Running with Docker Swarm:
+
+```sh
+docker swarm init
+```
+
+```sh
+cd project
+docker stack deploy -c swarm.yml go-micro-app
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
