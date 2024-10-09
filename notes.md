@@ -159,7 +159,7 @@ docker swarm join-token manager
 
 Deploy the stack:
 ```sh
-docker stack deploy -c swarm.yml go-micro-app
+docker stack deploy -c swarm.yml go-micro-app --resolve-image=never
 ```
 
 ```sh
