@@ -167,3 +167,9 @@ docker stack ls
 docker service ls
 docker service ps go-micro-app_logger-service
 ```
+
+### 80. Scaling services
+
+```sh
+docker service scale go-micro-app_listener-service=3
+```
