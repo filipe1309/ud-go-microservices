@@ -36,7 +36,7 @@ services:
       MAIL_ENCRYPTION: none
       MAIL_USERNAME: ""
       MAIL_PASSWORD: ""
-      MAIL_FROM_NAME: "no-reply@localhost.com"
+      MAIL_FROM_NAME: "John Doe"
       MAIL_FROM_ADDRESS: "no-reply@localhost.com"
 
   authentication-service:
