@@ -140,4 +140,30 @@ docker build -f listener-service.dockerfile -t devontherun/listener-service:1.0.
 docker push devontherun/listener-service:1.0.0
 ```
 
+### 78. Initializing and starting Docker Swarm
 
+```sh
+cd ../project
+docker swarm init
+```
+
+To add a worker to this swarm, run the following command:
+```sh
+docker swarm join-token worker
+```
+
+To add a manager to this swarm, run the following command:
+```sh
+docker swarm join-token manager
+```
+
+Deploy the stack:
+```sh
+docker stack deploy -c swarm.yml go-micro-app
+```
+
+```sh
+docker stack ls
+docker service ls
+docker service ps go-micro-app_logger-service
+```
