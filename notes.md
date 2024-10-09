@@ -173,3 +173,18 @@ docker service ps go-micro-app_logger-service
 ```sh
 docker service scale go-micro-app_listener-service=3
 ```
+
+### 81. Updating services
+
+```sh
+cd ../logger-service
+docker build -f logger-service.dockerfile -t devontherun/logger-service:1.0.1 . # build and tag
+docker push devontherun/logger-service:1.0.1
+```
+
+```sh
+cd ../project
+docker service ls
+docker service scale go-micro-app_logger-service=2
+docker service update --image devontherun/logger-service:1.0.1 go-micro-app_logger-service
+```
