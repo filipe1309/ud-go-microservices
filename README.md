@@ -121,6 +121,8 @@ Please make sure to update tests as appropriate. -->
 - [RPC with Go, what is it?](https://dev.to/iamelesq/rpc-with-go-what-is-it-p41)
 - [gRPC](https://grpc.io/)
 - [gRPC protoc](https://grpc.io/docs/protoc-installation/)
+- [Docker Swarm](https://docs.docker.com/engine/swarm/)
+- [Docker Hub](https://hub.docker.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

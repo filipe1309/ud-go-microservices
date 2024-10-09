@@ -100,3 +100,44 @@ protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=p
 go get google.golang.org/grpc
 go get google.golang.org/protobuf
 ```
+
+## Section 9: Deploying our Distributed App using Docker Swarm
+
+### 76. Building images for our microservices
+
+
+```sh
+docker login
+```
+
+```sh
+cd logger-service
+docker build -f logger-service.dockerfile -t devontherun/logger-service:1.0.0 . # build and tag
+docker push devontherun/logger-service:1.0.0
+```
+
+```sh
+cd ../broker-service
+docker build -f broker-service.dockerfile -t devontherun/broker-service:1.0.0 . # build and tag
+docker push devontherun/broker-service:1.0.0
+```
+
+```sh
+cd ../authentication-service
+docker build -f authentication-service.dockerfile -t devontherun/authentication-service:1.0.0 . # build and tag
+docker push devontherun/authentication-service:1.0.0
+```
+
+```sh
+cd ../mail-service
+docker build -f mail-service.dockerfile -t devontherun/mail-service:1.0.0 . # build and tag
+docker push devontherun/mail-service:1.0.0
+```
+
+```sh
+cd ../listener-service
+docker build -f listener-service.dockerfile -t devontherun/listener-service:1.0.0 . # build and tag
+docker push devontherun/listener-service:1.0.0
+```
+
+
