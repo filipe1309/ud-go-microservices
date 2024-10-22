@@ -203,3 +203,10 @@ After updating the broker service, build and push the new image:
 docker build -f broker-service.dockerfile -t devontherun/broker-service:1.0.1 .
 docker push devontherun/broker-service:1.0.1
 ```
+
+### 85. Adding the Front end to our swarm.yml deployment file
+
+```sh
+docker build -f front-end.dockerfile -t devontherun/front-end:1.0.0 .
+docker push devontherun/front-end:1.0.0
+```
