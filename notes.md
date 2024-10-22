@@ -195,3 +195,11 @@ docker service update --image devontherun/logger-service:1.0.1 go-micro-app_logg
 docker stack rm go-micro-app
 docker swarm leave --force
 ```
+
+### 83. Updating the Broker service, and creating a Dockerfile for the front end
+
+After updating the broker service, build and push the new image:
+```sh
+docker build -f broker-service.dockerfile -t devontherun/broker-service:1.0.1 .
+docker push devontherun/broker-service:1.0.1
+```
