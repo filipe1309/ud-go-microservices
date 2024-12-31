@@ -234,3 +234,10 @@ Deploy the stack:
 docker swarm init
 docker stack deploy -c swarm.yml go-micro-app
 ```
+
+### 98. Updating our swarm.yml and Caddy dockerfile for production
+
+```sh
+docker build -f caddy.production.dockerfile -t devontherun/micro-caddy-production:1.0.0 .
+docker push devontherun/micro-caddy-production:1.0.0
+```
