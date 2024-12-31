@@ -74,7 +74,6 @@ stop:
 
 start-swarm:
 	@echo "Starting Docker Swarm..."
-	cd project
 	docker swarm init
 	@echo "Docker Swarm started!"
 	docker stack deploy -c swarm.yml go-micro-app --resolve-image=never

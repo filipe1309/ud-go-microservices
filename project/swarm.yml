@@ -14,10 +14,12 @@ services:
       - caddy_config:/config
 
   front-end:
-    image: devontherun/front-end:1.0.2
+    image: devontherun/front-end:1.0.4
     deploy:
       mode: replicated
       replicas: 1
+    environment:
+      BROKER_URL: "http://backend"
 
   broker-service:
     image: devontherun/broker-service:1.0.1

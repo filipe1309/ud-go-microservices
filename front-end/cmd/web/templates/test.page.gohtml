@@ -69,7 +69,7 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch({{ print .BROKER_URL "/handle" }}, body)
+            fetch({{ print .BrokerURL "/handle" }}, body)
             .then(response => response.json())
             .then(data => {
                 sent.innerHTML = JSON.stringify(payload, undefined, 4);
@@ -103,7 +103,7 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch({{ print .BROKER_URL "/handle" }}, body)
+            fetch({{ print .BrokerURL "/handle" }}, body)
             .then(response => response.json())
             .then(data => {
                 sent.innerHTML = JSON.stringify(payload, undefined, 4);
@@ -137,7 +137,7 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch({{ print .BROKER_URL "/log-grpc" }}, body)
+            fetch({{ print .BrokerURL "/log-grpc" }}, body)
             .then(response => response.json())
             .then(data => {
                 sent.innerHTML = JSON.stringify(payload, undefined, 4);
@@ -158,7 +158,7 @@
                 method: 'POST'
             }
 
-            fetch({{ .BROKER_URL }}, body)
+            fetch({{.BrokerURL}}, body)
             .then(response => response.json())
             .then(data => {
                 sent.innerHTML = "empty post request";
@@ -192,7 +192,7 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch({{ print .BROKER_URL "/handle" }}, body)
+            fetch({{ print .BrokerURL "/handle" }}, body)
             .then(response => response.json())
             .then(data => {
                 sent.innerHTML = JSON.stringify(payload, undefined, 4);
