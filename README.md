@@ -134,6 +134,9 @@ Please make sure to update tests as appropriate. -->
 - [gRPC protoc](https://grpc.io/docs/protoc-installation/)
 - [Docker Swarm](https://docs.docker.com/engine/swarm/)
 - [Docker Hub](https://hub.docker.com/)
+- [Caddy](https://caddyserver.com/)
+- [SSHFS](https://phoenixnap.com/kb/sshfs)
+- [GlusterFS](https://www.gluster.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
