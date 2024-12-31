@@ -157,7 +157,7 @@ To add a manager to this swarm, run the following command:
 docker swarm join-token manager
 ```
 
-Deploy the stack:
+Deploy the stack on the manager node:
 ```sh
 docker stack deploy -c swarm.yml go-micro-app --resolve-image=never
 ```
@@ -207,14 +207,30 @@ docker push devontherun/broker-service:1.0.1
 ### 85. Adding the Front end to our swarm.yml deployment file
 
 ```sh
-docker build -f front-end.dockerfile -t devontherun/front-end:1.0.0 .
+docker build  --platform linux/amd64 -f front-end.dockerfile -t devontherun/front-end:1.0.1 .
 docker push devontherun/front-end:1.0.0
 ```
 
-## 86. Adding Caddy to the mix as a Proxy to our front end and the broker service
+### 86. Adding Caddy to the mix as a Proxy to our front end and the broker service
 
 ```sh
 cd project
 docker build -f caddy.dockerfile -t devontherun/micro-caddy:1.0.0 .
 docker push devontherun/micro-caddy:1.0.0
+```
+### 87. Modifying our hosts file to add a "backend" entry and bringing up our swarm
+
+```sh
+sudo vi /etc/hosts
+# add backend entry
+# 127.0.0.1       localhost backend
+# ::1             localhost backend
+# save and exit
+ping backend # test
+```
+
+Deploy the stack:
+```sh
+docker swarm init
+docker stack deploy -c swarm.yml go-micro-app
 ```
