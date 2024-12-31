@@ -71,3 +71,16 @@ stop:
 	@echo "Stopping front end..."
 	@-pkill -SIGTERM -f "./${FRONT_END_BINARY}"
 	@echo "Stopped front end!"
+
+start-swarm:
+	@echo "Starting Docker Swarm..."
+	cd project
+	docker swarm init
+	@echo "Docker Swarm started!"
+	docker stack deploy -c swarm.yml go-micro-app --resolve-image=never
+
+stop-swarm:
+	@echo "Stopping Docker Swarm..."
+	docker stack rm go-micro-app
+	docker swarm leave --force
+	@echo "Docker Swarm stopped!"
