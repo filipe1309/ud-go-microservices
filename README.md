@@ -77,13 +77,10 @@ make start # start front-end
 Running with Docker Swarm:
 
 ```sh
-docker swarm init
-```
-
-```sh
 cd project
-docker stack deploy -c swarm.yml go-micro-app
+make start-swarm
 ```
+> Stop with `make stop-swarm`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
