@@ -26,6 +26,7 @@ Notes taken during the course are in the [notes](notes.md) file.
 - [MongoDB](https://www.mongodb.com/)
 - [pgx](https://github.com/jackc/pgx)
 - [Mailhog](https://github.com/mailhog/MailHog)
+- [Caddy](https://caddyserver.com/)
 - [go-premailer](https://github.com/vanng822/go-premailer)
 - [Go Simple Mail](https://github.com/xhit/go-simple-mail)
 - [RabbitMQ](https://www.rabbitmq.com/)

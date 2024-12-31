@@ -210,3 +210,11 @@ docker push devontherun/broker-service:1.0.1
 docker build -f front-end.dockerfile -t devontherun/front-end:1.0.0 .
 docker push devontherun/front-end:1.0.0
 ```
+
+## 86. Adding Caddy to the mix as a Proxy to our front end and the broker service
+
+```sh
+cd project
+docker build -f caddy.dockerfile -t devontherun/micro-caddy:1.0.0 .
+docker push devontherun/micro-caddy:1.0.0
+```
